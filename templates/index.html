@@ -1,0 +1,43 @@
+<!doctype html>
+
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jokenpô Arcade</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="cabinet">
+    <h1>JOKENPÔ</h1>
+
+    <section class="screen" aria-label="Tela do jogo">
+
+      <div class="hud">
+        <div class="you">VOCÊ<span class="points" id="youPoints"></span><span class="lives" id="youLives"></span></div>
+        <div class="round" id="round"></div>
+        <div class="cpu">CPU<span class="points" id="cpuPoints"></span><span class="lives" id="cpuLives"></span></div>
+      </div>
+
+      <div class="arena" id="arena">
+        <canvas id="youSprite" width="12" height="12" aria-label="Sua jogada"></canvas>
+        <span class="vs">VS</span>
+        <canvas id="cpuSprite" width="12" height="12" aria-label="Jogada da CPU"></canvas>
+      </div>
+
+      <p class="message" id="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <div class="controls" id="controls"></div>
+
+    <button class="restart" id="restart" type="button" hidden>JOGAR DE NOVO</button>
+
+    <p class="hint">Quem vencer 3 rodadas leva a partida.</p>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
